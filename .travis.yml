@@ -3,12 +3,7 @@ jdk: oraclejdk8
 android:
   components:
     - tools
-    - platform-tools
-    
-    - build-tools-29.0.0
-    
-    - android-28
-    
+    - platform-tools    
     - extra-android-m2repository
 
 script:
@@ -16,6 +11,7 @@ script:
 before_install:
         - chmod +x gradlew
         - yes | sdkmanager "platforms;android-28"
+        - yes | sdkmanager "build-tools;29.0.0"
 branches:
         only:
                 - master
