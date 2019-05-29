@@ -25,3 +25,11 @@ licenses:
   - android-sdk-preview-license-.+
   - android-sdk-license-.+
   - google-gdk-license-.+
+  
+deploy:
+  provider: releases
+  api_key: "bff4d1f11c888fb41268870f6cd36ff47c2e8c5f"
+  file: "app/build/outputs/apk/debug/app-debug.apk"
+  skip_cleanup: true
+  on:
+    tags: true
