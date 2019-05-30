@@ -8,9 +8,9 @@ android:
   - extra-android-m2repository
 script:
 - "./gradlew build"
-after_success:
-- chmod +x HelloWorld.sh
-- "./HelloWorld.sh"
+#after_success:
+#- chmod +x HelloWorld.sh
+#- "./HelloWorld.sh"
 before_install:
 - chmod +x gradlew
 - yes | sdkmanager "platforms;android-28"
@@ -24,9 +24,8 @@ licenses:
 - google-gdk-license-.+
 deploy:
   provider: releases
-  user: adrianwithah
-  password:
-    secure: VnfK6vC/i6jf7Jlg4YTqr1KVbY4wTfCcCw0+10iZLKKgAs9KcO0vozQoX6dCwc2JtSO4REpITgzONsIwb1+wJwnTA2BML4T6iDFakS7cLVQwxMFybAel5fTYrgzlw1dSi2L5V4jDY51b+6QQ56+X4NfpLdUHKv/tGjHbzIi81J5GoJV+5+KdtlTyjFsPYGaisgfzAM5wwjIZtyE4zJhenqSfgxbWqdR1YJV+uvgnK9vkF9XelMgs/3/onLPy4dLrjJrgIETeTvoh7UFQ/fGpDyVYl05dr3ji/cCgko3g+QX5KXW+VuvtAGdvshpErileIfGXwVOKDcrksP3Ci3wvFNMviX+h8Valm3wzPxXjIexcYhQIGvENlKnXIwfma8XOCQxr10CS92HNTzg9e7wYaXi+/rD7QfS/XQGMoHephEbxVQNP2CDtsMVyKYGUkOCfu6JAotEWjr4ob4zp1Uf+FIDSFxwwzkvTW0rnOjr45IZ8igybzFIZhD2XDR62Z1CniVGgh8PlWFnlR6zdT+W6spR4NhPsSLh1XXzSK8IjhXxmy14qI+NqSmWrHikW5PyAwFqTogUgUf7s76hDKI58Mct/DH1dnjHCTA9ATAvZklxTBFbSTdiUV1KW/KYzevMchGYB+8AR2z238VLztXVl9PDuWpEKynxesKZLZh5UwFs=
+  api_key:
+    secure: T47v0xlFIza7BtOIuG0oq3I3EnNOnMi7O0dA3qBzDTtdqzkmm+uQ2wsRPa1ATdoAmZdcBsl93DyFbQwvXkP6hE7PYGmqeZFzqZzvTlHQvk9J6NbUiLcBn1Lm1fK7+ThLmdbBgIYucE/dSiiYupKLL7EkRM6PVo+Nj2JDUSLOyyyWtDjfE/pg9akp/vIW08oT8b4X/ruZkO0frQ4S8XTJlCRbxuWEWGlfLZ7p4/u+RqbS+Gy7BsacPbFdtyOBSJcztsFjAY+HsLSDvyy822HmvYq2DYAzk7Fl1mSdPlZn1OJa92ycPgf29T0iFlApqPfsyD6ZWbg0TDgI9bXC0ZYxrljCWWJY7c2UDZUKv6sB/sU8BZGh2qQ1K8kEpYABD7pqaVebzOm1fGH5WW2CUiFrNprt5yGpcEF3F75bo0w3BNnnZwH1Bg548HLBm5+IgUjjpuxTQUwdcZHFi0xq8BtT0/H97Ix/TsoAlSfkTHSlei9AERlZI+p/Q8wEZG0SPxzs3eRm9sHOfQT2PrmVwxGBT0RBLmmBfMDlql1AFKUk/5VJ07lGlRdGjY+caiFnMlUWqk96ARM+/iLCe4Bb3EMPmJl4MwLym+x5219Cq1xzHZ24BL9FZmthIfwJAdX7AgTcfASff+YxJtDdm2ywRQXPuPSL/XjnQ3lAk6l1V6tgv7Y=
   file: app/build/outputs/apk/debug/app-debug.apk
   skip_cleanup: true
   on:
