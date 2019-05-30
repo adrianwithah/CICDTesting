@@ -21,11 +21,20 @@ licenses:
 - android-sdk-preview-license-.+
 - android-sdk-license-.+
 - google-gdk-license-.+
+before_deploy:
+- cd app/build/outputs/apk/release
+- jarsigner -verbose -sigalg SHA1withRSA -digestalg SHA1 -keystore ../../../../../keystore.jks
+  -storepass $storepass -keypass $keypass app-release-unsigned.apk keystore
+- jarsigner -verify app-release-unsigned.apk
 deploy:
   provider: releases
   api_key:
     secure: C+by9tPsxnKU2NaQF5vfvVCrpzbwHVBy1yx/njdaXiEU67m2+4oOsrjHdVNfcH+pB1nmCMbUGxHoZkyCkbtl5pRIl7nfsSOHVnXqN73/z35ObprBvVG3onyHLzmQUdi8I+LD0oRbFzf+qeCZov38XMwyWKpgb2HJZ3bMvAr0f18WtilMIOUuwzthH/O5LwoQcU+QxuKOMglNctSZyfpGQEq8NZz0EkZ3fX6Rsz3lmTG9ZWGdePaXwbA/JF8ynANI60QmdG7VUWgeUP0DKB56MjBEhxW299wdZw+gJhbG3G262dYD0BglcX/sDn2BJ9KJzzcVChFb+9Z4vDY0WOHhuIHxlktYUJbqaE+x/98d0eReiaTck31AVsbYFY92YzZHAj8fhcs+A3I9Dd4PwPgPoOF7noV9vV6YeYQQBBIyFitv3/4KOgkSG4aY3AXDJR0o/blaBoLPDBYhjmkNLcrRjBO95kuMUW3jPB+GvC8gOLF3C06b9BbtYh2Q6QAXxbzczRnP5D30+gel2+S0kkoBwOKvOVJhQaM9gViunjTUQN55WuFMhfTBB9EDxdHyu6bvxCul7BuZdaq8UrDV53RvOwFf3o0flxXgFJv0PfYxW9wNZUh+35ZkIeV1OfmyV/MW7rOivXQ7ty5F+RJuTzocsakL/99d3dFPn3V9+DD5C7s=
-  file: app/build/outputs/apk/release/app-release-unsigned.apk
+  file: app-release-unsigned.apk
   skip_cleanup: true
   on:
     repo: adrianwithah/CICDTesting
+env:
+  global:
+  - secure: rQr+G1wfCplESj99f+BhMoFARjU9AQ3x6EAgZrfmUUd6ALGczCOCObY5BnbQ8N33ub5HwlOJtQjHIi6wRowIYdL1U5ASGiyXcBvQGJhJqEintuaECbrSmmckkcrtzPUwbIuIofSsz0gx9XPClAp6d59BIFdj/CY16GtdCKz/3dyn0W6U8Oyh0YzSKKCYB4rCGM6WsI7hwa4KWGEN/XH5M0iUHUub7H3XEFOW179OX/o6EJjQXEeDxkEBDYUcdjkpBpIyuLr2lSkq+YanwxIM153d9p84DL/7ptOoiB//Ncg7/l2aeDn343TCKNUfAVOGqMuFeEjHyHZ+FE0o17OYHEsYsZ7VwsuqimkGX74r6UvC/hEhxfSsANzLp/8YpADQb3F8ah36iaAICBWPYSOcnTzSeuoJJwKlZ0Gu6RdAJcwngX7tOyedibk3V4/YYAJhL+V1L/j3RX+uTP11HK/tWiOTzDcPg3dcAMrJS4UvRmaA7myN6dODjMbC2jP2bJa3AvbmEuxkQhMwvm5WHomFHBQsqtEN17SKU9wdxmVFn33IavdQ78BtMwld8FEcHMc2OSoZCGMx61HUGNXdcqQYD7J8y7R7RDSyPKrkXe6ZdlYzGP+6PIzSh1Ub3CKUXuR5WDOew56CQbHkyQQDykL7NwV+oyCtvUUiqcbuYj8Muuo=
+  - secure: lSUJOp3u5qGvJNwLZqWKpvaS3rSurIfpQSxTC9HM4azfXYYVrO/gYJdZfqP6yjFIG4RutmlY5od5TCgvNcmSgt5pwl4Y+y+3gHVFTPOuFVNj+M1wci+16fUYHJg36fqBxuz9jMObeuLOZgaGqCLvJC3RI7RSMDXEVKdNUUU1MtZWguZf8OCNZd/Xcr8mfzMOijbLPqLtB3DrqsOMcgKMTozbhX5tQWUI+eqNrzCQRcTEpOgIr49tki8HL6SpMw8sVYVX8e2XAGIiPiL8ipZhCX2N6pJl59Hw88qWnfJ0KV2zJc/35kfahuRf7FM/6l5rRxMGgM7bvxRr8KyICu+x/3QdwPpmAxe/ZNLqWnmsUXRTa8fBcWc6vG1lUdkgX7GC6mtn0SWYUgvUS4n3BaGhp03s8JepsCLkZQUUA/Ugtw2tjNJ2kQ5/NbcpJ6HXbAAyiKNUg+VQJWjAXkTeKzO7g2vImA1A3/1fzITvzB1d3rDGv8g/rNQg+3FeHcZtVfiSrM5+fZeIM47bRZ4q0J198Ci7l6rEMBINhzhBwEiHvf0vq8xjh3Avor0G3RPyCoUADMxJIKpIgiL+XX5JR2s9Z36Ashab7lridkilqZjgjwX+O2x/1HyxS/5OoyyDj95vSRYb5ybtMmKw9KCbGS95t2lKCyWdhxNwLaqIKEzF/KM=
