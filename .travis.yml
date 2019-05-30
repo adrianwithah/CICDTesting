@@ -3,33 +3,29 @@ dist: trusty
 jdk: oraclejdk8
 android:
   components:
-    - tools
-    - platform-tools    
-    - extra-android-m2repository
-
+  - tools
+  - platform-tools
+  - extra-android-m2repository
 script:
-  - ./gradlew build
-  
+- "./gradlew build"
 after_success:
-  - chmod +x HelloWorld.sh
-  - ./HelloWorld.sh
-  
+- chmod +x HelloWorld.sh
+- "./HelloWorld.sh"
 before_install:
-        - chmod +x gradlew
-        - yes | sdkmanager "platforms;android-28"
-        - yes | sdkmanager "build-tools;28.0.3"
+- chmod +x gradlew
+- yes | sdkmanager "platforms;android-28"
+- yes | sdkmanager "build-tools;28.0.3"
 branches:
-        only:
-                - master
+  only:
+  - master
 licenses:
-  - android-sdk-preview-license-.+
-  - android-sdk-license-.+
-  - google-gdk-license-.+
-  
+- android-sdk-preview-license-.+
+- android-sdk-license-.+
+- google-gdk-license-.+
 deploy:
   provider: releases
-  api_key: "bff4d1f11c888fb41268870f6cd36ff47c2e8c5f"
-  file: "app/build/outputs/apk/debug/app-debug.apk"
-  skip_cleanup: true
+  api_key:
+    secure: aBM8AbrOQxWm5J1Qb2PyidmDo7MhL7wxOtXVtgXOVRTEp8zbQPdHgO+YAGpqlQ6MpqFmcjqYNaxwPXJ0MF7tyAmWvBB6CY9bguoi5hbdax1mjwcQ6MLvAKWMCch1DjEx26++q5Vu+5Rc38IeeJWgnU4krtPpbpaseMlvNOeS6ojATUjNfgn+dL2RS2p6CJhogZAj2V/qHhdRdpgCNVCTRXav7wRNFVS2MjCBpztAnnyoORtXpicPQozCwN5SEWjbBopgV53pp5+6m+Y8JTg4mtnNDd1wR45Ly1jS9C2lJl9c9VSA4DoNDYMoV1XlSdGK1rsrvIgaamBKP5Vaq70vHz1IAO1ggU9fV8pobAfUyKkMyZTmJBfNTTkq6zt4MqQ8AHYypq2XjCvLF7JXl6CY9sqse13LpClR/c4+L/kP6X1Iq7AOsFKOARFvfGCn6JaP2mcUFbe0Yo7caVsumbENGse+5UQ74xyegWhvQLpocIM1xN0YR9j/wbq839Gu7iuUjvK3EA2FcN7OIqP4A7H+/OC6ddzeSN/ulDEvjWcv1aG39okwo2CfNKNR1nEKj4HbGRXzOhtkmnogYU2gdXJIXD5sANb3PQCTufGY49nkW3z+kZCE0p/xeqsxrwD6fEgRQhrFPoaJFvGsRIE2gLq5xFBk/nMgLZHi9xMoEpjeqKY=
+  file: app/build/outputs/apk/debug/app-debug.apk
   on:
-    tags: true
+    repo: adrianwithah/CICDTesting
