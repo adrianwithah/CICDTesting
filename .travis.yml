@@ -24,5 +24,6 @@ deploy:
   api_key:
     secure: C+by9tPsxnKU2NaQF5vfvVCrpzbwHVBy1yx/njdaXiEU67m2+4oOsrjHdVNfcH+pB1nmCMbUGxHoZkyCkbtl5pRIl7nfsSOHVnXqN73/z35ObprBvVG3onyHLzmQUdi8I+LD0oRbFzf+qeCZov38XMwyWKpgb2HJZ3bMvAr0f18WtilMIOUuwzthH/O5LwoQcU+QxuKOMglNctSZyfpGQEq8NZz0EkZ3fX6Rsz3lmTG9ZWGdePaXwbA/JF8ynANI60QmdG7VUWgeUP0DKB56MjBEhxW299wdZw+gJhbG3G262dYD0BglcX/sDn2BJ9KJzzcVChFb+9Z4vDY0WOHhuIHxlktYUJbqaE+x/98d0eReiaTck31AVsbYFY92YzZHAj8fhcs+A3I9Dd4PwPgPoOF7noV9vV6YeYQQBBIyFitv3/4KOgkSG4aY3AXDJR0o/blaBoLPDBYhjmkNLcrRjBO95kuMUW3jPB+GvC8gOLF3C06b9BbtYh2Q6QAXxbzczRnP5D30+gel2+S0kkoBwOKvOVJhQaM9gViunjTUQN55WuFMhfTBB9EDxdHyu6bvxCul7BuZdaq8UrDV53RvOwFf3o0flxXgFJv0PfYxW9wNZUh+35ZkIeV1OfmyV/MW7rOivXQ7ty5F+RJuTzocsakL/99d3dFPn3V9+DD5C7s=
   file: app/build/outputs/apk/debug/app-debug.apk
+  skip_cleanup: true
   on:
     repo: adrianwithah/CICDTesting
