@@ -8,9 +8,6 @@ android:
   - extra-android-m2repository
 script:
 - "./gradlew build"
-#after_success:
-#- chmod +x HelloWorld.sh
-#- "./HelloWorld.sh"
 before_install:
 - chmod +x gradlew
 - yes | sdkmanager "platforms;android-28"
@@ -25,9 +22,7 @@ licenses:
 deploy:
   provider: releases
   api_key:
-    secure: "T9vjAKSMcXoADFANG4fR362yyose5WjBSb8TuMB/anOeryg0eeFKiSlACiim4nRqvvW87b6SRGVCLQk3HjpLKmuOw/9CiyOhYNtloGV0qMuGDSC+T5yP5/U7h1uLWMs/HtZon2Twh/S3KaLvNuIEtZsxvZXVUu8APw+Xx/MxMkvvbwcRrajD+ECL42bhv7urSLP7hWrI4aq+cdPAicmZZeS98NS5QtmzJ7/gotSj8+jlPrDrDSpt+vIiAiC4x7G1RdXeceziXeYr7tnPt9XDAzkHuAt0O8w8e7aDd/bkg3St/zLRM74x0mNEXD7GQ/ZovSz92OhrBej11AhihGoBC1Hi/g2QVmY6TE1Xm1ilrz8Hm2XaDpUBDy6lVDaOMJmS8OcfnFWnou56wK8xyIzfs6YzIHeeGNyHxm7WPx1uti1Nru48RMNhmB+Bl88WgMDP+7y336SeR0lEKK2prfxHzvTLNokiPVKdc6wTAl6FREw4vidCvm7OfuXErjKsyRhAxixqcL1TBJCTXvhcria/UCivUYLA4+5q1x/fuQ9ek7jcIOLpe51c9ZSdiaDdNsY2o7mmCSKyp1/JIItEBVOUiIjX9I2IyLh7LXxaHPyLCmE5kGw0GEzLCJ71u3Ubq8b/Y6I1PQLBz/+qbM9YSxpQhkdmi7/2ntxR2beSGoEbZSc="
+    secure: C+by9tPsxnKU2NaQF5vfvVCrpzbwHVBy1yx/njdaXiEU67m2+4oOsrjHdVNfcH+pB1nmCMbUGxHoZkyCkbtl5pRIl7nfsSOHVnXqN73/z35ObprBvVG3onyHLzmQUdi8I+LD0oRbFzf+qeCZov38XMwyWKpgb2HJZ3bMvAr0f18WtilMIOUuwzthH/O5LwoQcU+QxuKOMglNctSZyfpGQEq8NZz0EkZ3fX6Rsz3lmTG9ZWGdePaXwbA/JF8ynANI60QmdG7VUWgeUP0DKB56MjBEhxW299wdZw+gJhbG3G262dYD0BglcX/sDn2BJ9KJzzcVChFb+9Z4vDY0WOHhuIHxlktYUJbqaE+x/98d0eReiaTck31AVsbYFY92YzZHAj8fhcs+A3I9Dd4PwPgPoOF7noV9vV6YeYQQBBIyFitv3/4KOgkSG4aY3AXDJR0o/blaBoLPDBYhjmkNLcrRjBO95kuMUW3jPB+GvC8gOLF3C06b9BbtYh2Q6QAXxbzczRnP5D30+gel2+S0kkoBwOKvOVJhQaM9gViunjTUQN55WuFMhfTBB9EDxdHyu6bvxCul7BuZdaq8UrDV53RvOwFf3o0flxXgFJv0PfYxW9wNZUh+35ZkIeV1OfmyV/MW7rOivXQ7ty5F+RJuTzocsakL/99d3dFPn3V9+DD5C7s=
   file: app/build/outputs/apk/debug/app-debug.apk
-  skip_cleanup: true
   on:
     repo: adrianwithah/CICDTesting
-
